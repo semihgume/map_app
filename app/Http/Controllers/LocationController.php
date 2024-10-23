@@ -17,24 +17,37 @@ class LocationController extends Controller {
     public function index()
     {
         $locations = $this->locationService->getAllLocations();
-        return response()->json($locations);
+        return view('locations.index', compact('locations'));
     }
 
     public function show($id)
     { 
         $location = $this->locationService->getLocationById($id);
-        return response()->json($location);
+        return view('locations.show', compact('location'));
     }
 
     public function store(Request $request) 
     {
         $data = $request->only('name', 'latitude', 'longitude', 'hex_color');
         $location = $this->locationService->createLocation($data);
-        return response()->json($location, 201);
+        return redirect()->route('locations.index')->with('success', 'Location created successfully!');
+    }
+
+    public function update(Request $request, $id)
+    { 
+        $data = $request->only('name', 'latitude', 'longitude', 'hex_color');
+        $location = $this->locationService->updateLocation($id, $data);
+        return view('locations.show', compact('location'));
     }
 
     public function create()
     {
-        return view('welcome');
+        return view('locations.create');
+    }
+
+    public function edit($id)
+    {
+        $location = $this->locationService->getLocationById($id);
+        return view('locations.edit', compact('location'));
     }
 }

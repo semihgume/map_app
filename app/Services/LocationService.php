@@ -32,4 +32,10 @@ class LocationService {
         return $this->locationRepository->create($data);
     }
 
+    public function updateLocation($id, array $data)
+    {
+        $this->locationValidator->validate($data);
+        return $this->locationRepository->update($id, $data);
+    }
+
 }

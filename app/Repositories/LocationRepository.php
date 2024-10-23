@@ -21,13 +21,10 @@ class LocationRepository {
         return Location::create($data);
     }
 
-    public function update()
+    public function update($id, $data)
     {
-
-    }
-
-    public function delete()
-    {
-
+        $location = $this->getById($id);
+        $location->update($data);
+        return $location;
     }
 }
