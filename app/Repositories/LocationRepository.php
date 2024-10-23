@@ -13,7 +13,7 @@ class LocationRepository {
 
     public function getById($id)
     {
-        return Location::find($id);
+        return Location::findorFail($id);
     }
 
     public function create(array $data)

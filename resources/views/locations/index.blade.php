@@ -4,66 +4,12 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}" />
-<style>
-    body {
-        display: flex;
-        height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
-
-    .info-panel {
-        width: 35%;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-right: 1px solid #ddd;
-        overflow-y: auto;
-    }
-
-    #map {
-        flex-grow: 1;
-        height: 100%;
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th, td {
-        padding: 10px;
-        border: 1px solid #ddd;
-        text-align: left;
-    }
-
-    th {
-        background-color: #f4f4f4;
-    }
-
-    tr:hover {
-        background-color: #f0f0f0;
-        cursor: pointer;
-    }
-
-    tr.selected {
-        background-color: #d0e9ff;
-    }
-
-    .color-box {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            margin-left: 10px;
-            margin-right: 5px; 
-            border: 1px solid #000;
-            vertical-align: middle;
-    }
-</style>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 @endsection
 
 @section('content')
 
-    <div class="info-panel">
+    <div class="info-panel" style="width: 40%">
         <h2>Konum Listesi</h2>
         <table>
             <thead>
@@ -95,6 +41,9 @@
         </table>
         <div class="mt-3">
             <a href="{{ route('locations.create') }}" class="btn btn-primary">Yeni Konum Ekle</a>
+        </div>
+        <div class="mt-3">
+            <a href="{{ route('locations.routing') }}" class="btn btn-dark">Rota Oluştur</a>
         </div>
     </div>
 

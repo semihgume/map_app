@@ -4,49 +4,7 @@
 
 @section('css')
 <link rel="stylesheet" href="{{ asset('css/leaflet.css') }}" />
-<style>
-    body {
-        display: flex;
-        height: 100vh;
-        margin: 0;
-        font-family: Arial, sans-serif;
-    }
-
-    .info-panel {
-        width: 20%;
-        padding: 20px;
-        background-color: #f9f9f9;
-        border-right: 1px solid #ddd;
-    }
-
-    #map {
-        flex-grow: 1;
-        height: 100%;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    label {
-        display: block;
-        font-weight: bold;
-    }
-
-    input {
-            width: 100%;
-            padding: 10px;
-            margin-top: 5px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            background-color: #f0f0f0;
-    }
-
-    input[readonly] {
-        background-color: #e9ecef;
-    }
-</style>
+<link rel="stylesheet" href="{{ asset('css/style.css') }}" />
 @endsection
 
 @section('content')
@@ -55,15 +13,15 @@
         <h2>Konum Bilgileri</h2>
         <div class="form-group">
             <label for="name">Konum Adı:</label>
-            <input type="text" id="name" value="{{ $location->name }}" readonly />
+            <input type="text" class="form-control" id="name" value="{{ $location->name }}" readonly />
         </div>
         <div class="form-group">
             <label for="latitude">Enlem:</label>
-            <input type="text" id="latitude" value="{{ $location->latitude }}" readonly />
+            <input type="number" class="form-control" id="latitude" value="{{ $location->latitude }}" readonly />
         </div>
         <div class="form-group">
             <label for="longitude">Boylam:</label>
-            <input type="text" id="longitude" value="{{ $location->longitude }}" readonly />
+            <input type="number" class="form-control" id="longitude" value="{{ $location->longitude }}" readonly />
         </div>
         <div class="form-group">
             <label for="color">Marker Rengi (Hex Kodu):</label>
